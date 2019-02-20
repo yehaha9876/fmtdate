@@ -85,7 +85,7 @@ func Parse(format string, value string) (time.Time, error) {
 	if format == "" {
 		format = DefaultDateTimeFormat
 	}
-	return time.Parse(replace(format), value)
+	return time.ParseInLocation(replace(format), value, time.Local)
 }
 
 type p struct{ find, subst string }
